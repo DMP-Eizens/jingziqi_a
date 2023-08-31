@@ -257,7 +257,108 @@ void print(int result)
     fout << endl << "******************" << endl;
     return;
 }
-void ai(int round){}
+void ai(int round){
+    int weight[9] = { 0 };
+    int max = 0;
+    int j = 0;
+    int maxloc[9] = { 0 };
+    srand((unsigned)time(NULL));
+    Sleep(rand() % 501 + 500);
+    int loc;
+    if (rand() % 22 != 0)
+    {
+        if (board[0] == board[1] && board[0] == 2 && board[2] == 0)weight[2] += 2;
+        if (board[0] == board[2] && board[0] == 2 && board[1] == 0)weight[1] += 2;
+        if (board[1] == board[2] && board[1] == 2 && board[0] == 0)weight[0] += 2;
+
+        if (board[3] == board[4] && board[3] == 2 && board[5] == 0)weight[5] += 2;
+        if (board[3] == board[5] && board[3] == 2 && board[4] == 0)weight[4] += 2;
+        if (board[4] == board[5] && board[4] == 2 && board[3] == 0)weight[3] += 2;
+
+        if (board[6] == board[7] && board[6] == 2 && board[8] == 0)weight[8] += 2;
+        if (board[6] == board[8] && board[6] == 2 && board[7] == 0)weight[7] += 2;
+        if (board[7] == board[8] && board[7] == 2 && board[6] == 0)weight[6] += 2;
+
+        if (board[0] == board[3] && board[0] == 2 && board[6] == 0)weight[6] += 2;
+        if (board[0] == board[6] && board[0] == 2 && board[3] == 0)weight[3] += 2;
+        if (board[3] == board[6] && board[3] == 2 && board[0] == 0)weight[0] += 2;
+
+        if (board[1] == board[4] && board[1] == 2 && board[7] == 0)weight[7] += 2;
+        if (board[1] == board[7] && board[1] == 2 && board[4] == 0)weight[4] += 2;
+        if (board[4] == board[7] && board[4] == 2 && board[1] == 0)weight[1] += 2;
+
+        if (board[2] == board[5] && board[2] == 2 && board[8] == 0)weight[8] += 2;
+        if (board[2] == board[8] && board[2] == 2 && board[5] == 0)weight[5] += 2;
+        if (board[5] == board[8] && board[5] == 2 && board[2] == 0)weight[2] += 2;
+
+        if (board[0] == board[4] && board[0] == 2 && board[8] == 0)weight[8] += 2;
+        if (board[0] == board[8] && board[0] == 2 && board[4] == 0)weight[4] += 2;
+        if (board[4] == board[8] && board[4] == 2 && board[0] == 0)weight[0] += 2;
+
+        if (board[2] == board[4] && board[2] == 2 && board[6] == 0)weight[6] += 2;
+        if (board[2] == board[6] && board[2] == 2 && board[4] == 0)weight[4] += 2;
+        if (board[4] == board[6] && board[4] == 2 && board[2] == 0)weight[2] += 2;
+
+
+        if (board[0] == board[1] && board[0] == 1 && board[2] == 0)weight[2] += 1;
+        if (board[0] == board[2] && board[0] == 1 && board[1] == 0)weight[1] += 1;
+        if (board[1] == board[2] && board[1] == 1 && board[0] == 0)weight[0] += 1;
+
+        if (board[3] == board[4] && board[3] == 1 && board[5] == 0)weight[5] += 1;
+        if (board[3] == board[5] && board[3] == 1 && board[4] == 0)weight[4] += 1;
+        if (board[4] == board[5] && board[4] == 1 && board[3] == 0)weight[3] += 1;
+
+        if (board[6] == board[7] && board[6] == 1 && board[8] == 0)weight[8] += 1;
+        if (board[6] == board[8] && board[6] == 1 && board[7] == 0)weight[7] += 1;
+        if (board[7] == board[8] && board[7] == 1 && board[6] == 0)weight[6] += 1;
+
+        if (board[0] == board[3] && board[0] == 1 && board[6] == 0)weight[6] += 1;
+        if (board[0] == board[6] && board[0] == 1 && board[3] == 0)weight[3] += 1;
+        if (board[3] == board[6] && board[3] == 1 && board[0] == 0)weight[0] += 1;
+
+        if (board[1] == board[4] && board[1] == 1 && board[7] == 0)weight[7] += 1;
+        if (board[1] == board[7] && board[1] == 1 && board[4] == 0)weight[4] += 1;
+        if (board[4] == board[7] && board[4] == 1 && board[1] == 0)weight[1] += 1;
+
+        if (board[2] == board[5] && board[2] == 1 && board[8] == 0)weight[8] += 1;
+        if (board[2] == board[8] && board[2] == 1 && board[5] == 0)weight[5] += 1;
+        if (board[5] == board[8] && board[5] == 1 && board[2] == 0)weight[2] += 1;
+
+        if (board[0] == board[4] && board[0] == 1 && board[8] == 0)weight[8] += 1;
+        if (board[0] == board[8] && board[0] == 1 && board[4] == 0)weight[4] += 1;
+        if (board[4] == board[8] && board[4] == 1 && board[0] == 0)weight[0] += 1;
+
+        if (board[2] == board[4] && board[2] == 1 && board[6] == 0)weight[6] += 1;
+        if (board[2] == board[6] && board[2] == 1 && board[4] == 0)weight[4] += 1;
+        if (board[4] == board[6] && board[4] == 1 && board[2] == 0)weight[2] += 1;
+
+        for (int i = 0; i < 9; i++)
+        {
+            if (weight[i] > max)
+            {
+                max = weight[i];
+                maxloc[j] = i;
+                j++;
+            }
+        }
+        if (max != 0)
+            loc = maxloc[rand() % j];
+        else goto rand;
+    }
+    else
+    {
+    rand:
+        while (true)
+        {
+            loc = rand() % 9;
+            if (board[loc] == 0)break;
+        }
+    }
+
+    board[loc] = 2;
+    sequence[loc] = round;
+    return;
+}
 bool win(){
     return (board[0] == board[1] && board[0] == board[2] && board[0] != 0)
         || (board[3] == board[4] && board[3] == board[5] && board[3] != 0)
