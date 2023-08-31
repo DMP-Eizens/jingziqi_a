@@ -67,7 +67,196 @@ void display()
 
     return;
 }
-void print(int result){}
+void print(int result)
+{
+    ofstream fout;
+    fout.open("./jilu.txt", ios::out | ios::app);
+
+    time_t nowtime;
+    time(&nowtime);
+    tm p;
+    localtime_s(&p, &nowtime);
+    fout << p.tm_year + 1900 << " " << p.tm_mon + 1 << "." << p.tm_mday << " " << p.tm_hour << ":" << p.tm_min << ":" << p.tm_sec << endl;
+
+    switch (result)
+    {
+    case 0:
+        fout << "此局游戏未完成" << endl;
+        break;
+    case 2:
+        fout << "此局游戏玩家胜出" << endl;
+        break;
+    case 1:
+        fout << "此局游戏电脑胜出" << endl;
+        break;
+    case 3:
+        fout << "此局游戏平局" << endl;
+        break;
+    }
+
+    fout << endl << "     |     |     " << endl;
+    fout << "  ";
+    switch (board[0])
+    {
+    case 0:
+        fout << " ";
+        break;
+    case 1:
+        fout << "X";
+        break;
+    case 2:
+        fout << "O";
+        break;
+    }
+    fout << "  |  ";
+    switch (board[1])
+    {
+    case 0:
+        fout << " ";
+        break;
+    case 1:
+        fout << "X";
+        break;
+    case 2:
+        fout << "O";
+        break;
+    }
+    fout << "  |  ";
+    switch (board[2])
+    {
+    case 0:
+        fout << " ";
+        break;
+    case 1:
+        fout << "X";
+        break;
+    case 2:
+        fout << "O";
+        break;
+    }
+    fout << endl;
+
+    fout << "   ";
+    if (sequence[0] == 0)fout << " ";
+    else fout << sequence[0];
+    fout << " |   ";
+    if (sequence[1] == 0)fout << " ";
+    else fout << sequence[1];
+    fout << " |   ";
+    if (sequence[2] == 0)fout << " ";
+    else fout << sequence[2];
+
+    fout << endl;
+    fout << "-----|-----|-----" << endl
+        << "     |     |     " << endl;
+    fout << "  ";
+    switch (board[3])
+    {
+    case 0:
+        fout << " ";
+        break;
+    case 1:
+        fout << "X";
+        break;
+    case 2:
+        fout << "O";
+        break;
+    }
+    fout << "  |  ";
+    switch (board[4])
+    {
+    case 0:
+        fout << " ";
+        break;
+    case 1:
+        fout << "X";
+        break;
+    case 2:
+        fout << "O";
+        break;
+    }
+    fout << "  |  ";
+    switch (board[6])
+    {
+    case 0:
+        fout << " ";
+        break;
+    case 1:
+        fout << "X";
+        break;
+    case 2:
+        fout << "O";
+        break;
+    }
+    fout << endl;
+
+    fout << "   ";
+    if (sequence[3] == 0)fout << " ";
+    else fout << sequence[3];
+    fout << " |   ";
+    if (sequence[4] == 0)fout << " ";
+    else fout << sequence[4];
+    fout << " |   ";
+    if (sequence[5] == 0)fout << " ";
+    else fout << sequence[5];
+
+    fout << endl;
+    fout << "-----|-----|-----" << endl
+        << "     |     |     " << endl;
+    fout << "  ";
+    switch (board[6])
+    {
+    case 0:
+        fout << " ";
+        break;
+    case 1:
+        fout << "X";
+        break;
+    case 2:
+        fout << "O";
+        break;
+    }
+    fout << "  |  ";
+    switch (board[7])
+    {
+    case 0:
+        fout << " ";
+        break;
+    case 1:
+        fout << "X";
+        break;
+    case 2:
+        fout << "O";
+        break;
+    }
+    fout << "  |  ";
+    switch (board[8])
+    {
+    case 0:
+        fout << " ";
+        break;
+    case 1:
+        fout << "X";
+        break;
+    case 2:
+        fout << "O";
+        break;
+    }
+    fout << endl;
+
+    fout << "   ";
+    if (sequence[6] == 0)fout << " ";
+    else fout << sequence[6];
+    fout << " |   ";
+    if (sequence[7] == 0)fout << " ";
+    else fout << sequence[7];
+    fout << " |   ";
+    if (sequence[8] == 0)fout << " ";
+    else fout << sequence[8];
+
+    fout << endl << "******************" << endl;
+    return;
+}
 void ai(int round){}
 bool win(){}
 
