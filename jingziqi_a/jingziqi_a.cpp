@@ -8,7 +8,65 @@ using namespace std;
 int board[9] = { 0 };
 int sequence[9] = { 0 };
 
-void display(){}
+void displaychar(int loc)
+{
+    switch (board[loc])
+    {
+    case 0:
+        cout << " ";
+        break;
+    case 1:
+        cout << "X";
+        break;
+    case 2:
+        cout << "O";
+        break;
+    }
+    return;
+}
+
+void display()
+{
+    cout << endl;
+    cout << "     |     |     " << endl;
+
+    cout << "  ";
+    displaychar(0);
+    cout << "  |  ";
+    displaychar(1);
+    cout << "  |  ";
+    displaychar(2);
+    cout << endl;
+
+    cout << "     |     |     " << endl
+        << "-----|-----|-----" << endl
+        << "     |     |     " << endl;
+
+    cout << "  ";
+    displaychar(3);
+    cout << "  |  ";
+    displaychar(4);
+    cout << "  |  ";
+    displaychar(5);
+    cout << endl;
+
+    cout << "     |     |     " << endl
+        << "-----|-----|-----" << endl
+        << "     |     |     " << endl;
+
+    cout << "  ";
+    displaychar(6);
+    cout << "  |  ";
+    displaychar(7);
+    cout << "  |  ";
+    displaychar(8);
+    cout << endl;
+
+    cout << "     |     |     " << endl;
+    cout << endl;
+
+    return;
+}
 void print(int result){}
 void ai(int round){}
 bool win(){}
